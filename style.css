@@ -1,0 +1,117 @@
+/* बेसिक रीसेट और फॉन्ट */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #aa1919;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    border: 10px solid black;
+    border-radius: 30px;
+}
+
+/* हेडर स्टाइल */
+.main-header {
+    border: 6px solid black;
+    padding: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: center;
+    background-color: rgb(198, 140, 33);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.main-header{
+    transition: 1.0s ease;
+    cursor: pointer;;
+}
+.main-header:hover > :not(:hover){
+    opacity: 1.0;
+}
+.main-header:hover{
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    transition: ease-in-out;
+    transform: translateY(2px); /* Card thoda upar move hoga */
+    box-shadow: 20px 20px 20px blue /* Shadow gehri ho jayegi */
+}
+
+/* मुख्य कंटेनर (स्केच का अंदर वाला बड़ा बॉक्स) */
+.container {
+    flex: 1;
+    max-width: 1000px;
+    width: 90%;
+    border-radius: 50px;
+    margin: 0 auto 20px auto;
+    border: 8px solid black;
+    padding: 25px;
+    background-color: yellow
+}
+
+/* 3x3 ग्रिड लेआउट */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* एक लाइन में 3 बराबर बॉक्स */
+    gap: 20px; /* बॉक्स के बीच की दूरी */
+}
+
+/* सभी बॉक्स का कॉमन स्टाइल */
+.box {
+    border: 8px solid #fb0919;
+    border-radius: 88px;
+    aspect-ratio: 4 / 3; /* बॉक्स को एक परफेक्ट रेक्टेंगल शेप देने के लिए */
+    overflow: hidden; /* ताकि इमेज/वीडियो बॉक्स से बाहर न निकले */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeaea;
+}
+.box{
+    transition: 1.0s ease;
+    cursor: pointer;;
+}
+.box:hover > :not(:hover){
+    opacity: 1.0;
+}
+.box:hover{
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    transition: ease-in-out;
+    transform: translateY(2px); /* Card thoda upar move hoga */
+    box-shadow: 20px 20px 20px red /* Shadow gehri ho jayegi */
+}
+
+/* इमेज को पूरा बॉक्स कवर कराने का जादुई कोड */
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: ; /* इससे फोटो बिना खींचे पूरे बॉक्स को कवर कर लेगी */
+    display: block;
+}
+
+/* वीडियो बॉक्स स्टाइल */
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* वीडियो भी पूरे बॉक्स को कवर करेगी */
+    background-color: #000;
+}
+
+/* मोबाइल स्क्रीन के लिए (Responsive) */
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr); /* मोबाइल पर एक लाइन में 2 बॉक्स दिखेंगे */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-layout {
+        grid-template-columns: 1fr; /* बहुत छोटे मोबाइल पर एक लाइन में 1 बॉक्स दिखेगा */
+    }
+}
